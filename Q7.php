@@ -1,4 +1,4 @@
-7. Create a function that takes voltage and current and returns the calculated power. 
+ 
  <?php
       function powerCalculation($voltage, $current) {
             return $voltage * $current;

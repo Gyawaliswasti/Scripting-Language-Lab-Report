@@ -22,7 +22,8 @@
 
     <?php
     // Check if form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+     {
         // Retrieve input values
         $chickens = intval($_POST['chickens']);
         $cows = intval($_POST['cows']);
@@ -31,7 +32,7 @@
         // Leg counts
         $chickenLegs = $chickens * 2; // Each chicken has 2 legs
         $cowLegs = $cows * 4;         // Each cow has 4 legs
-        $pigLegs = $pigs * 4;         // Each pig has 4 legs
+        $pigLegs = $pigs * 4;       
 
         // Calculate total legs
         $totalLegs = $chickenLegs + $cowLegs + $pigLegs;
