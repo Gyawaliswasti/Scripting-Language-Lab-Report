@@ -55,39 +55,6 @@
     </style>
 </head>
 <body>
-    <?php
-    
-    if(isset($_GET['id'])) {
-        $student_id = $_GET['id'];
-        $conn = new mysqli('localhost', 'root', '', 'q33'); // Adjust database credentials
-        // Fetch student details
-        $student_query = "SELECT * FROM students WHERE id = $student_id";
-        $student_result = mysqli_query($conn, $student_query);
-        $student = mysqli_fetch_assoc($student_result);
-        
-        // Fetch marks
-        $marks_query = "SELECT * FROM marks WHERE rollno = $student_id";
-        $marks_result = mysqli_query($conn, $marks_query);
-        $marks = mysqli_fetch_assoc($marks_result);
-        
-        function grade($marks) {
-            $total_marks = $marks + 35;
-            if($total_marks >= 90) {
-                $grade = 'A+';
-                $grade_point = 4.0;
-            } elseif($total_marks >= 80) {
-                $grade = 'A';
-                $grade_point = 3.6;
-            } elseif($total_marks >= 70) {
-                $grade = 'B+';
-                $grade_point = 3.2;
-            } else {
-                $grade = 'B';
-                $grade_point = 2.8;
-            }
-            return array($total_marks, $grade, $grade_point);
-        }
-    ?>
     <div class="container">
         <!-- Header Section -->
         <div class="header">
@@ -105,9 +72,9 @@
 
         <!-- Personal Details -->
         <div>
-            <p><strong>Name:</strong> <?php echo $student['name']; ?></p>   
-            <p><strong>Roll No:</strong> <?php echo $student['rollno']; ?></p>
-            <p><strong>Date of Birth:</strong> <?php echo $student['dob']; ?></p>
+            <p><strong>Class:</strong> 7</p>
+            <p><strong>Name:</strong> [Student Name] &nbsp;&nbsp;&nbsp;&nbsp; <strong>Roll No:</strong> [Roll No]</p>
+            <p><strong>Date of Birth:</strong> [DOB]</p>
         </div>
 
         <!-- Subject Marks Table -->
@@ -119,6 +86,7 @@
                     <th rowspan="2">Credit Hour</th>
                     <th colspan="2">Full Marks</th>
                     <th rowspan="2">Obtained Marks</th>
+                    <th rowspan="2">Class Highest</th>
                     <th rowspan="2">Grade</th>
                     <th rowspan="2">Grade Point</th>
                 </tr>
@@ -126,47 +94,72 @@
                     <th>TH</th>
                     <th>PR</th>
                 </tr>
+                <!-- Row Entries -->
                 <tr>
-                <?php
-                $sn = 1;
-                $grade_info = grade($marks['english']);
-                ?>
-                    <td><?php echo $sn++; ?></td>
+                    <td>1</td>
                     <td>English</td>
                     <td>4</td>
-                    <td>60</td>
-                    <td>40</td>
-                    <td><?php echo $marks['english']; ?></td>
-                    <td><?php echo $grade_info[1]; ?></td>
-                    <td><?php echo $grade_info[2]; ?></td>
+                    <td>75</td>
+                    <td>25</td>
+                    <td>92</td>
+                    <td>95</td>
+                    <td>A+</td>
+                    <td>4.0</td>
                 </tr>
-                <?php
-                $grade_info = grade($marks['mathematics']);
-                ?>
-                    <td><?php echo $sn++; ?></td>
-                    <td>mathematics</td>
+                <tr>
+                    <td>2</td>
+                    <td>Mathematics</td>
                     <td>4</td>
-                    <td>60</td>
-                    <td>40</td>
-                    <td><?php echo $marks['mathematics']; ?></td>
-                    <td><?php echo $grade_info[1]; ?></td>
-                    <td><?php echo $grade_info[2]; ?></td>
+                    <td>75</td>
+                    <td>25</td>
+                    <td>88</td>
+                    <td>92</td>
+                    <td>A</td>
+                    <td>3.6</td>
                 </tr>
-                <?php
-                $grade_info = grade($marks['science']);
-                ?>
-                    <td><?php echo $sn++; ?></td>
-                    <td>science</td>
+                <tr>
+                    <td>3</td>
+                    <td>Science</td>
                     <td>4</td>
-                    <td>60</td>
-                    <td>40</td>
-                    <td><?php echo $marks['science']; ?></td>
-                    <td><?php echo $grade_info[1]; ?></td>
-                    <td><?php echo $grade_info[2]; ?></td>
+                    <td>75</td>
+                    <td>25</td>
+                    <td>85</td>
+                    <td>90</td>
+                    <td>A</td>
+                    <td>3.4</td>
                 </tr>
             </table>
         </div>
+
+        <!-- ECA and Grade Details -->
+        <div>
+            <h3>Details of ECA Grade</h3>
+            <table class="table-container">
+                <tr>
+                    <th>SN</th>
+                    <th>Category</th>
+                    <th>Grade</th>
+                    <th>Remarks</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>TT Theory</td>
+                    <td>A</td>
+                    <td>Excellent</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Physical</td>
+                    <td>B+</td>
+                    <td>Good</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Signature of Principal</strong></p>
+        </div>
     </div>
-    <?php } ?>
 </body>
 </html>

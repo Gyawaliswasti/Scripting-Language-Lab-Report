@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
     
     // In a real application, you would validate against a database
     // This is just a simple example
-    if($username === "sujin" && $password === "botlife") {
+    if($username === "swasti" && $password === "life") {
         $_SESSION['name'] = $username;
         header("Location: q32addrecord.php");
         exit();

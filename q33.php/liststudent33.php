@@ -1,5 +1,5 @@
 <?php
-require_once 'function.php';
+require_once 'function33.php';
 
 $err = [];
 if (isset($_GET['delid']) && is_numeric($_GET['delid'])) {
@@ -34,7 +34,7 @@ $records = getAllStudents();
 </head>
 <body>
     <h1 align="center">List Record</h1>
-    <a href="addstudent.php" class="text-light no-decor ">Add record</a>
+    <a href="addstudent33.php" class="text-light no-decor ">Add record</a>
     <?php  echo displayErrorMessage($err,'failed')?>
     <?php  echo displaySuccessMessage($err,'success')?>
     <table width="100%" border="1">
@@ -60,8 +60,8 @@ $records = getAllStudents();
                 <td><?php echo $record['address']; ?></td>
                 <td><?php echo $record['dob']; ?></td>
                 <td>
-                    <a href="editStudent.php?edtid=<?php echo $record['id'] ?>">Edit</a>
-                    <a href="liststudent.php?delid=<?php echo $record['id'] ?>">Delete</a>
+                    <a href="editStudent33.php?edtid=<?php echo $record['id'] ?>">Edit</a>
+                    <a href="liststudent33.php?delid=<?php echo $record['id'] ?>">Delete</a>
                 </td>
             </tr>
         <?php } ?>

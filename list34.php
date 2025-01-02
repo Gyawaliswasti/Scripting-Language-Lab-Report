@@ -63,7 +63,7 @@ $result = $conn->query($sql);
                             <td>{$row['id']}</td>
                             <td>{$row['rollno']}</td>
                             <td>{$row['name']}</td>
-                            <td><a href='marksheet.php?id={$row['id']}' class='btn'>View Marksheet</a></td>
+                            <td><a href='marksheet34.php?id={$row['id']}' class='btn'>View Marksheet</a></td>
                           </tr>";
                 }
             } else {

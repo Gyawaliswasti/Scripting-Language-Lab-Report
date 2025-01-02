@@ -6,6 +6,7 @@ function calculateSI($principle, $rate, $time) {
 // Initialize variables to store input values and result
 $principle = $rate = $time = $simple_interest = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve input values from the form
     $principle = isset($_POST["principle"]) ? $_POST["principle"] : "<br>";
